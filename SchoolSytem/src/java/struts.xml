@@ -1,0 +1,44 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        
+        <interceptors>  
+            <interceptor name="upper" class="MyInterceptor"></interceptor>  
+        </interceptors>  
+        
+        <action name="UserAction" class="User.UserAction">
+            <interceptor-ref name="defaultStack"></interceptor-ref>  
+            <interceptor-ref name="upper"></interceptor-ref>  
+            <result name="register">/Register.jsp</result>
+            <result name="login">/Login.jsp</result>
+        </action>
+        <action name="LoginAction" class="User.LoginAction">
+            <result name="StudentHome">/StudentHome.jsp</result>
+            <result name="LectuereHome">/LectuerHome.jsp</result>
+            <result name="login">/Login.jsp</result>
+            <result name="RetrieveCourse">/RetrieveCourse.jsp</result> 
+        </action>
+        <action name="AddCourseAction" class="Course.AddCourseAction">
+            <result name="AddCourse">/AddCourse.jsp</result>
+            <result name="LectuereHome">/LectuerHome.jsp</result>
+        </action>
+        <action name="CourseUpdation" class="Course.CourseUpdation">
+            <result name="UpdateCourse">/UpdateCourse.jsp</result>
+            <result name="LectuerHome">/LectuerHome.jsp</result>
+        </action>
+        <action name="DeleteCourseAction" class="Course.DeleteCourseAction">
+            <result name="LectuerHome">/LectuerHome.jsp</result>
+        </action>
+        <action name="UpdateCourseAction" class="Course.UpdateCourseAction">
+            <result name="UpdateCourse">/UpdateCourse.jsp</result>
+            <result name="LectuerHome">/LectuerHome.jsp</result>
+        </action>
+        <action name="RetrieveCourseAction"  class="Course.RetrieveCourseAction">
+            <result name="RetrieveCourse">/RetrieveCourse.jsp</result>            
+        </action>
+    </package>
+</struts>
